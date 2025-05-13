@@ -27,7 +27,7 @@ function Book(name, author, page, cover, status) {
 
 function addBookToLibrary(name, author, page, cover, status) {
     if (cover === '') {
-        cover = 'https://pngimg.com/d/book_PNG51004.png';
+        cover = 'https://cnopt.tn/wp-content/uploads/2023/06/default-image.jpg';
     }
     let newBook = new Book(name, author, page, cover, status);
     myLibrary.push(newBook);
@@ -37,6 +37,7 @@ const addBtn = document.querySelector('#toggleBtn');
 const closeBtn = document.querySelector('#closeBtn');
 const cardsContainer = document.querySelector('.cards-container');
 const submitBtn = document.querySelector('#submitBtn');
+const titleInput = document.querySelector('#bookTitle');
 
 addBtn.addEventListener('click', toggle);
 closeBtn.addEventListener('click', toggle);
@@ -51,6 +52,7 @@ submitBtn.addEventListener('click', () => {
     cardsContainer.innerHTML = '';
     showAll();
     toggle();
+    console.log(myLibrary);
 })
 
 function toggle() {
@@ -133,4 +135,33 @@ function showAll() {
         createElement(element);
     });
 }
+
+
+titleInput.addEventListener('input', (e) => {
+    const errorMessage = document.querySelector('.title-error');
+    if (titleInput.validity.tooShort) {
+        titleInput.classList.add('error');
+        errorMessage.innerText = titleInput.validationMessage;
+    } else if (titleInput.validity.valueMissing){
+        titleInput.classList.add('error');
+        errorMessage.innerText = titleInput.validationMessage;
+    } else {
+        titleInput.classList.remove('error');
+        errorMessage.innerText = '';
+    }
+});
+const authorInput = document.querySelector('#bookAuthor');
+authorInput.addEventListener('input', (e) => {
+    const errorMessage = document.querySelector('.author-error');
+    if (authorInput.validity.tooShort) {
+        authorInput.classList.add('error');
+        errorMessage.innerText = authorInput.validationMessage;
+    } else if (authorInput.validity.valueMissing){
+        authorInput.classList.add('error');
+        errorMessage.innerText = authorInput.validationMessage;
+    } else {
+        authorInput.classList.remove('error');
+        errorMessage.innerText = '';
+    }
+});
 showAll();

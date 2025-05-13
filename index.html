@@ -13,16 +13,20 @@
 
 <body>
     <div class="modal-container">
-        <div class="modal">
-            <div id="closeBtn">&#10005;</div>
-            <h3>Add Book</h3>
-            <input autofocus type="text" name="bookTitle" id="bookTitle" placeholder="Book Title">
-            <input type="text" name="bookAuthor" id="bookAuthor" placeholder="Book Author">
-            <input type="text" name="bookCover" id="bookCover" placeholder="Book Cover | Example: https://pngimg.com/d/book_PNG51004.png">
-            <input type="number" name="bookPages" id="bookPages" placeholder="Book Pages">
-            <label for="bookStatus"> <input type="checkbox" name="bookStatus" id="bookStatus"> Finished read the book?</label>
-            <button id="submitBtn">Submit</button>
-        </div>
+        <form action="" novalidate>
+            <div class="modal">
+                <div id="closeBtn">&#10005;</div>
+                <h3>Add Book</h3>
+                <input autofocus type="text" name="bookTitle" id="bookTitle" placeholder="Book Title" minlength="2" maxlength="30" required>
+                <p class="error-message title-error" aria-label=></p>
+                <input type="text" name="bookAuthor" id="bookAuthor" placeholder="Book Author" required maxlength="20">
+                <p class="error-message author-error"></p>
+                <input type="text" name="bookCover" id="bookCover" placeholder="Book Cover | Example: https://pngimg.com/d/book_PNG51004.png">
+                <input type="number" name="bookPages" id="bookPages" placeholder="Book Pages">
+                <label for="bookStatus"> <input type="checkbox" name="bookStatus" id="bookStatus"> Finished read the book?</label>
+                <button id="submitBtn">Submit</button>
+            </div>
+        </form>
     </div>
     <aside>
         <h1>Books</h1>

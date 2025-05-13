@@ -80,7 +80,7 @@ main {
     font-size: .9em;
     outline: none;
     color: #fff;
-    border: none;
+    border: 2px solid #021831;
     margin: .5rem 0;
     border-radius: 4px;
 }
@@ -185,4 +185,12 @@ header {
 }
 footer {
     grid-column: 2 / 3;
+}
+
+.modal input[type="text"].error {
+    border: 2px solid red;
+}
+
+.error-message {
+    font-size: .6em;
 }
